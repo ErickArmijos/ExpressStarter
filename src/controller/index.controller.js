@@ -1,9 +1,18 @@
 const controller = {}
-const name='Luis';
-controller.index = (req,res)=>{
-    res.render('index.pug',{
-        name
-    });
+const connection = require('../dbConnection/connection');
+const PokeModel = require('../models/pokedex.models')
+
+
+controller.index = async (req,res)=>{
+   try{
+        await connection();
+        const pokemons=await PokeModel.find();
+        console.log(pokemons);     
+        const name='Luis';
+        res.render('index.pug',{name});
+   }catch(e){
+        console.error(e)
+   }
 }
 
 

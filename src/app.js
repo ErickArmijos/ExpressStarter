@@ -13,10 +13,15 @@ app.use(routes);
 // Static Files 
 app.use(express.static(path.join(__dirname,'../public')))
 app.use((req,res)=>{
-    res.sendFile(path.join(__dirname,'../public/index.html'))
+    res.sendFile(path.join(__dirname,'../public/404.html'))
 })
 
 app.listen(3000,()=>{
     console.log('Servidor a la espera de conexiones');
 })
+
+
+
+
+// mongodb+srv://ermuffins202:<password>@cluster0.qftcd53.mongodb.net/
 
